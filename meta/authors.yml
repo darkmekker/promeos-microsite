@@ -1,1 +1,9 @@
-authors: []
+authors:
+  - slug: wutali
+    name: Takahiro Fujiwara
+    introduction:
+      Co-founder and CTO at Fuller, Inc. / Software & Data Engineer /
+      Python / Golang / React
+  - slug: mark
+    name: mark
+    introduction: intro text for this meta
