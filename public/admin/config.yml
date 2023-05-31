@@ -9,7 +9,7 @@ public_folder: /images
 collections:
   - name: "posts"
     label: "Projects"
-    folder: "content/projects/"
+    folder: "content/posts/"
     extension: "mdx"
     format: "frontmatter"
     create: true
