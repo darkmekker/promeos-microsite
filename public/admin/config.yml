@@ -92,13 +92,13 @@ collections:
                 name: "introduction"
                 widget: "markdown"
       - name: "tags"
-        label: "Processes"
+        label: "Sub Processes"
         file: "meta/tags.yml"
         description: "List of processes"
         fields:
           - name: tags
-            label: Processes
-            label_singular: "Process"
+            label: Sub Processes
+            label_singular: "Sub Process"
             widget: list
             fields:
               - label: "Slug"
@@ -142,13 +142,23 @@ collections:
         displayFields:
           - "authors.*.name"
         valueField: "authors.*.slug"
-      - label: Tags
-        label_singular: "Tag"
+      - label: Process
+        name: "processes"
+        widget: relation
+        collection: "meta"
+        file: "processes"
+        searchFields:
+          - "processes.*.name"
+        displayFields:
+          - "processes.*.name"
+        valueField: "processes.*.slug"
+      - label: Sub Processes
+        label_singular: "Sub Process"
         name: "tags"
         widget: list
         summary: "{{fields.tag}}"
         field:
-          label: Tag
+          label: Sub Process
           name: tag
           widget: relation
           collection: "meta"
