@@ -13,19 +13,16 @@ collections:
     extension: "mdx"
     format: "frontmatter"
     create: true
-    slug: { { slug } }
+    slug: "{{slug}}"
     identifier_field: slug
     summary: "{{title}}"
     fields:
-      - label: "Title"
-        name: "title"
-        widget: "string"
-
       - label: "Slug"
         name: "slug"
         widget: "string"
-        required: false
-        hint: "Leave this field empty to generate a slug from the title."
+      - label: "Title"
+        name: "title"
+        widget: "string"
 
       - label: Main Processes
         label_singular: "Main Process"
