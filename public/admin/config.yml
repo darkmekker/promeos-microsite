@@ -7,41 +7,59 @@ public_folder: /images
 # publish_mode: editorial_workflow
 
 collections:
-  - name: "config"
-    label: "Config"
-    delete: false
-    editor:
-      preview: false
-    files:
-      - name: "general"
-        label: "Site Config"
-        file: "config.json"
-        description: "General site settings"
-        fields:
-          - label: "URL"
-            name: "base_url"
-            widget: "string"
-            hint: "Do not enter the trailing slash of the URL"
-          - label: "Site title"
-            name: "site_title"
-            widget: "string"
-          - label: "Site description"
-            name: "site_description"
-            widget: "string"
-          - label: "Site keywords"
-            name: "site_keywords"
-            widget: "list"
-            summary: "{{fields.keyword.keyword}}"
-            field:
-              label: Keyword
-              name: keyword
-              widget: "string"
-          - label: "Twitter account"
-            name: "twitter_account"
-            widget: "string"
-          - label: "GitHub account"
-            name: "github_account"
-            widget: "string"
+  - name: "posts"
+    label: "Projects"
+    folder: "content/posts/"
+    extension: "mdx"
+    format: "frontmatter"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: Main Processes
+        label_singular: "Main Process"
+        name: "processes"
+        widget: list
+        summary: "{{fields.process}}"
+        field:
+          label: Main Process
+          name: process
+          widget: relation
+          collection: "meta"
+          file: "processes"
+          searchFields:
+            - "processes.*.name"
+          displayFields:
+            - "processes.*.name"
+          valueField: "processes.*.slug"
+
+      - label: Sub Processes
+        label_singular: "Sub Process"
+        name: "tags"
+        widget: list
+        summary: "{{fields.tag}}"
+        field:
+          label: Sub Process
+          name: tag
+          widget: relation
+          collection: "meta"
+          file: "tags"
+          searchFields:
+            - "tags.*.name"
+          displayFields:
+            - "tags.*.name"
+          valueField: "tags.*.slug"
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
 
   - name: "meta"
     label: "Meta"
@@ -87,62 +105,32 @@ collections:
                 widget: "string"
                 hint: "Process name for displaying on the site"
 
-  - name: "posts"
-    label: "Projects"
-    folder: "content/posts/"
-    extension: "mdx"
-    format: "frontmatter"
-    create: true
-    slug: "{{slug}}"
-    identifier_field: slug
-    summary: "{{title}}"
-    fields:
-      - label: "Slug"
-        name: "slug"
-        widget: "string"
-      - label: "Title"
-        name: "title"
-        widget: "string"
-      - label: "Publish Date"
-        name: "date"
-        widget: "datetime"
-        format: "YYYY-MM-DD"
-        dateFormat: "YYYY-MM-DD"
-        timeFormat: false
-
-      - label: Main Processes
-        label_singular: "Main Process"
-        name: "processes"
-        widget: list
-        summary: "{{fields.process}}"
-        field:
-          label: Main Process
-          name: process
-          widget: relation
-          collection: "meta"
-          file: "processes"
-          searchFields:
-            - "processes.*.name"
-          displayFields:
-            - "processes.*.name"
-          valueField: "processes.*.slug"
-
-      - label: Sub Processes
-        label_singular: "Sub Process"
-        name: "tags"
-        widget: list
-        summary: "{{fields.tag}}"
-        field:
-          label: Sub Process
-          name: tag
-          widget: relation
-          collection: "meta"
-          file: "tags"
-          searchFields:
-            - "tags.*.name"
-          displayFields:
-            - "tags.*.name"
-          valueField: "tags.*.slug"
-      - label: "Body"
-        name: "body"
-        widget: "markdown"
+  - name: "config"
+    label: "Config"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "Site Config"
+        file: "config.json"
+        description: "General site settings"
+        fields:
+          - label: "URL"
+            name: "base_url"
+            widget: "string"
+            hint: "Do not enter the trailing slash of the URL"
+          - label: "Site title"
+            name: "site_title"
+            widget: "string"
+          - label: "Site description"
+            name: "site_description"
+            widget: "string"
+          - label: "Site keywords"
+            name: "site_keywords"
+            widget: "list"
+            summary: "{{fields.keyword.keyword}}"
+            field:
+              label: Keyword
+              name: keyword
+              widget: "string"
