@@ -49,48 +49,25 @@ collections:
     editor:
       preview: false
     files:
-      - name: "authors"
-        label: "Authors"
-        file: "meta/authors.yml"
-        description: "Author descriptions"
-        fields:
-          - name: authors
-            label: Authors
-            label_singular: "Author"
-            widget: list
-            fields:
-              - label: "Slug"
-                name: "slug"
-                widget: "string"
-                hint: "The part of a URL identifies the author"
-              - label: "Name"
-                name: "name"
-                widget: "string"
-                hint: "First and Last"
-              - label: "Introduction"
-                name: "introduction"
-                widget: "markdown"
       - name: "processes"
-        label: "Processes"
+        label: "Main Processes"
         file: "meta/processes.yml"
-        description: "List of processes"
+        description: "List of main processes"
         fields:
           - name: processes
-            label: Processes
-            label_singular: "Process"
+            label: Main Processes
+            label_singular: "Main Process"
             widget: list
             fields:
               - label: "Slug"
                 name: "slug"
                 widget: "string"
-                hint: "The part of a URL identifies the Process"
+                hint: "The part of a URL identifies the process"
               - label: "Display Name"
                 name: "name"
                 widget: "string"
-                hint: "Category name for displaying on the site"
-              - label: "Introduction"
-                name: "introduction"
-                widget: "markdown"
+                hint: "Process name for displaying on the site"
+
       - name: "tags"
         label: "Sub Processes"
         file: "meta/tags.yml"
@@ -111,7 +88,7 @@ collections:
                 hint: "Process name for displaying on the site"
 
   - name: "posts"
-    label: "Posts"
+    label: "Projects"
     folder: "content/posts/"
     extension: "mdx"
     format: "frontmatter"
@@ -132,26 +109,24 @@ collections:
         format: "YYYY-MM-DD"
         dateFormat: "YYYY-MM-DD"
         timeFormat: false
-      - label: Author
-        name: "author"
-        widget: relation
-        collection: "meta"
-        file: "authors"
-        searchFields:
-          - "authors.*.name"
-        displayFields:
-          - "authors.*.name"
-        valueField: "authors.*.slug"
-      - label: Process
+
+      - label: Main Processes
+        label_singular: "Main Process"
         name: "processes"
-        widget: relation
-        collection: "meta"
-        file: "processes"
-        searchFields:
-          - "processes.*.name"
-        displayFields:
-          - "processes.*.name"
-        valueField: "processes.*.slug"
+        widget: list
+        summary: "{{fields.process}}"
+        field:
+          label: Main Process
+          name: process
+          widget: relation
+          collection: "meta"
+          file: "processes"
+          searchFields:
+            - "processes.*.name"
+          displayFields:
+            - "processes.*.name"
+          valueField: "processes.*.slug"
+
       - label: Sub Processes
         label_singular: "Sub Process"
         name: "tags"
