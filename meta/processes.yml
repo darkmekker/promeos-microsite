@@ -1,0 +1,64 @@
+processes:
+  - slug: melting
+    name: melting
+    introduction:
+  - slug: recycling
+    name: recycling
+    introduction:
+  - slug: holding
+    name: holding
+    introduction:
+  - slug: preheating
+    name: preheating
+    introduction:
+  - slug: drying
+    name: drying
+    introduction:
+  - slug: heat-treatment
+    name: heat treatment
+    introduction:
+  - slug: hardening
+    name: hardening
+    introduction:
+  - slug: forging
+    name: forging
+    introduction:
+  - slug: welding
+    name: welding
+    introduction:
+  - slug: tempering
+    name: tempering
+    introduction:
+  - slug: coating
+    name: coating
+    introduction:
+  - slug: galvanizing
+    name: galvanizing
+    introduction:
+  - slug: vulcanizing
+    name: vulcanizing
+    introduction:
+  - slug: flame-treating
+    name: flame treating
+    introduction:
+  - slug: afterburning
+    name: afterburning
+    introduction:
+  - slug: baking
+    name: baking
+    introduction:
+  - slug: shrinking
+    name: shrinking
+    introduction:
+  - slug: washing
+    name: washing
+    introduction:
+  - slug: vaporizing
+    name: vaporizing
+    introduction:
+  - slug: polishing
+    name: polishing
+    introduction:
+  - slug: hot-shaping
+    name: hot shaping (forming)
+    introduction:
